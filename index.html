@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <title>Inventory Tracker</title>
+</head>
+<body>
+  <div id="app">
+    <!-- Balance Card -->
+    <header class="card">
+      <h2>Drawer Balance</h2>
+      <p id="drawer-balance">$0.00</p>
+    </header>
+
+    <!-- Inventory Grid -->
+    <section class="grid">
+      <div class="card"><h3>Tobacco</h3><span id="stock-tobacco">0</span></div>
+      <div class="card"><h3>Rolling Paper</h3><span id="stock-rollingPaper">0</span></div>
+      <div class="card"><h3>Filters</h3><span id="stock-filters">0</span></div>
+      <div class="card"><h3>Lighters</h3><span id="stock-lighters">0</span></div>
+    </section>
+
+    <!-- Floating Action Button -->
+    <button id="open-modal-btn">+ Action</button>
+
+    <!-- Action Modal -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <h3>Record Action</h3>
+        <select id="action-type">
+          <option value="invest">Invest Money</option>
+          <option value="borrow">Borrow Money</option>
+          <option value="buy">Buy Goods</option>
+          <option value="sell">Sell Goods</option>
+        </select>
+
+        <div id="item-select-group">
+          <label>Item:</label>
+          <select id="action-item">
+            <option value="tobacco">Tobacco</option>
+            <option value="rollingPaper">Rolling Paper</option>
+            <option value="filters">Filters</option>
+            <option value="lighters">Lighters</option>
+          </select>
+          <label>Quantity:</label>
+          <input type="number" id="action-qty" min="1" value="1">
+        </div>
+
+        <label>Total Amount ($):</label>
+        <input type="number" id="action-amount" min="0" step="0.01">
+
+        <button id="submit-action-btn">Save</button>
+        <button id="close-modal-btn">Cancel</button>
+      </div>
+    </div>
+
+    <!-- History Section -->
+    <section class="history-section">
+      <h3>History Log</h3>
+      <ul id="history-list"></ul>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
